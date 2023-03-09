@@ -20,6 +20,7 @@ const COLORS = {
   red: css`
     cursor: pointer;
     background-color: #fab1a0;
+    color:#E16A6B;
       &:active{
         background-color: #d63031;
       }
@@ -44,6 +45,7 @@ const COLORS = {
     cursor: pointer;
     border: 3px solid #fab1a0;
     background-color: rgb(255, 255, 255);
+    color:#E16A6B;
     font-weight: 600;
       &:active{
         background-color: #F0F0F0;
@@ -51,11 +53,16 @@ const COLORS = {
   `
 }
 
-function Button({ size, color, children, ...승호 }) {
+function Button({ size, color, Positoin, children, ...승호 }) {
   const ButtonSize = BUTTONSIZES[size]
   const ButtonColor = COLORS[color]
   return (
-    <StlyedButton ButtonSize={ButtonSize} ButtonColor={ButtonColor} {...승호}>{children}</StlyedButton>
+    <StlyedButton
+      ButtonSize={ButtonSize}
+      ButtonColor={ButtonColor}
+      // ButtonPosition={ButtonPosition}
+      {...승호}>{children}
+    </StlyedButton>
   )
 }
 
@@ -64,7 +71,7 @@ export default Button
 const StlyedButton = styled.button`
     border-radius: 8px;
     border: none;
+    margin: 5px;
     ${(props) => (props.ButtonSize)}
     ${(props) => (props.ButtonColor)}
-    
   `
